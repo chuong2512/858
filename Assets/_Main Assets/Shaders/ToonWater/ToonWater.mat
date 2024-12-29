@@ -1,0 +1,124 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-2590691180197317895
+MonoBehaviour:
+  m_ObjectHideFlags: 11
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0353a89b1f911e48b9e16bdc9f2e058, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  version: 5
+--- !u!21 &2100000
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: ToonWater
+  m_Shader: {fileID: -6465566751694194690, guid: ea3925c51226a624986babf721202159,
+    type: 3}
+  m_ValidKeywords: []
+  m_InvalidKeywords: []
+  m_LightmapFlags: 2
+  m_EnableInstancingVariants: 1
+  m_DoubleSidedGI: 1
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - Texture2D_f8ddc6fde1844d14ae74a780ec43e0a1:
+        m_Texture: {fileID: 2800000, guid: 5aa2b6828d764481db196cb65619e4b3, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _FoamTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MainTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _SampleTexture2D_3b52e66beec84e1fb37b72df4689e1d5_Texture_1:
+        m_Texture: {fileID: 2800000, guid: 8297a967e71dddd478d70c19f00e28ee, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_Lightmaps:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_LightmapsInd:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_ShadowMasks:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats:
+    - Vector1_1038f67154624489ac4cd7946683afbb: 5
+    - Vector1_2444f8c2640c46ffbf46aa88e7fb9bf3: 0
+    - Vector1_37aae6ce8de648318e1da3a6dca967ca: 12.02
+    - Vector1_37d928bb9dda4f5e8cdbdf6de94b9569: 0
+    - Vector1_5e0a27eb5d1a46ceb04c35f31cc0cb81: 0.14
+    - Vector1_6e1cb1925b65458d8d61d64225116123: 1
+    - Vector1_7a871fcad170433c910f944daf377c18: 0
+    - Vector1_8774ec77e2804366a5242967fc317ae1: 0
+    - Vector1_8e776efc04f74dc6a9e34c0ff8781456: 292.8
+    - Vector1_965167d337854a3890423e2566f45dcb: 0
+    - Vector1_ae573ee3f3ed4cfb9c6651bc91e14645: 0.04
+    - Vector1_c3ca8a52b38c4ccdbd94dbacd6c18ac4: 0.03
+    - Vector1_fde033d5c3b849c39a5dac38d227f548: 0
+    - _DepthDistance: 0.5
+    - _FoamSmooth: 0.02
+    - _FoamSpread: 2
+    - _FoamStrength: 0.8
+    - _QueueControl: 0
+    - _QueueOffset: 0
+    - _RampSmooth: 0.1
+    - _RampThreshold: 0.5
+    - _RimMax: 1
+    - _RimMin: 0.5
+    - _UVWaveAmplitude: 0.05
+    - _UVWaveFrequency: 1
+    - _UVWaveSpeed: 1
+    - _WaveFrequency: 1
+    - _WaveHeight: 0.1
+    - _WaveSpeed: 2
+    - __dummy__: 0
+    - _cutoff: 1.36
+    - _foam_amount: 1
+    - _foam_scale: 5961.5
+    - _foam_speed: 1
+    m_Colors:
+    - Color_13d5c7b28b414f02a9089b674c2ae665: {r: 1, g: 1, b: 1, a: 0}
+    - Color_c4c38172753d48da81d7d1ccdc484e30: {r: 1, g: 1, b: 1, a: 0}
+    - Color_e1c224266f174891b45ce072dae40252: {r: 0.004271993, g: 0.43740654, b: 0.9056604,
+        a: 0}
+    - Color_f5968961186d4bf69377ebc1d626d8fc: {r: 0, g: 0.65364814, b: 1, a: 1}
+    - Vector2_1: {r: 0.8, g: 1, b: 0, a: 0}
+    - Vector2_482ff244d3d64205a2b0a00a98d0d76d: {r: -1, g: 1, b: 0, a: 0}
+    - _BW: {r: 0.5566038, g: 0.5566038, b: 0.5566038, a: 0}
+    - _COLOR_1: {r: 0.003921569, g: 0.6313726, b: 1, a: 0}
+    - _Color: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+    - _Color_2: {r: 0.47058824, g: 0.92941177, b: 1, a: 0}
+    - _DepthColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+    - _FoamColor: {r: 0.9, g: 0.9, b: 0.9, a: 1}
+    - _FoamSpeed: {r: 2, g: 2, b: 2, a: 2}
+    - _HColor: {r: 0.6, g: 0.6, b: 0.6, a: 1}
+    - _OBJECT_FOAM_COLOR: {r: 0.7454045, g: 0.7454045, b: 0.7454045, a: 1}
+    - _OUT_1: {r: -0.15, g: 1, b: 0, a: 0}
+    - _RimColor: {r: 0.8, g: 0.8, b: 0.8, a: 0.6}
+    - _SColor: {r: 0.3, g: 0.3, b: 0.3, a: 1}
+    - _Vector2: {r: -0.94, g: 0.05, b: 0, a: 0}
+    - _Vector2_1: {r: 0.44, g: -0.49, b: 0, a: 0}
+    - _in: {r: -3.18, g: 1, b: 0, a: 0}
+  m_BuildTextureStacks: []
