@@ -2,25 +2,36 @@
 %TAG !u! tag:unity3d.com,2011:
 --- !u!21 &2100000
 Material:
-  serializedVersion: 6
+  serializedVersion: 8
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: TCP2_Demo_CatFlat style4
-  m_Shader: {fileID: 4800000, guid: 1e8425e1846f52e4e8d8171ccadbcb29, type: 3}
-  m_ShaderKeywords: TCP2_OUTLINE_TEXTURED _EMISSION _RECEIVE_SHADOWS_OFF
+  m_Shader: {fileID: 46, guid: 0000000000000000f000000000000000, type: 0}
+  m_Parent: {fileID: 0}
+  m_ModifiedSerializedProperties: 0
+  m_ValidKeywords:
+  - _EMISSION
+  m_InvalidKeywords:
+  - TCP2_OUTLINE_TEXTURED
+  - _RECEIVE_SHADOWS_OFF
   m_LightmapFlags: 1
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
   m_CustomRenderQueue: -1
   stringTagMap: {}
   disabledShaderPasses: []
+  m_LockedProperties: 
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
     - _BaseMap:
         m_Texture: {fileID: 2800000, guid: af02dda8ae75a334e9d41087d4a9a7fd, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _BaseMap1:
+        m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _BumpMap:
@@ -75,6 +86,7 @@ Material:
         m_Texture: {fileID: 2800000, guid: 60573ff7f60d93e4e88c01310ba411e5, type: 3}
         m_Scale: {x: 6, y: 6}
         m_Offset: {x: 0, y: 0}
+    m_Ints: []
     m_Floats:
     - _BumpScale: 1
     - _Cutoff: 0.5
@@ -118,6 +130,9 @@ Material:
     - _SrcBlend: 1
     - _TexLod: 0
     - _UVSec: 0
+    - _UseWind: 0
+    - _WindSpeed: 2.5
+    - _WindStrength: 0.025
     - _ZSmooth: -0.5
     - _ZWrite: 1
     - __dummy__: 0
@@ -133,3 +148,5 @@ Material:
     - _SColor: {r: 0.23584908, g: 0.23584908, b: 0.23584908, a: 1}
     - _SpecColor: {r: 0.32352942, g: 0.32352942, b: 0.32352942, a: 1}
     - _SpecularColor: {r: 0.8396226, g: 0.8396226, b: 0.8396226, a: 1}
+    - _WindDirection: {r: 1, g: 0, b: 0, a: 0}
+  m_BuildTextureStacks: []

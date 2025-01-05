@@ -9,17 +9,17 @@ using MoreMountains.NiceVibrations;
 
 public class CannonScript : MonoBehaviour
 {
-    [SerializeField] Transform shootingPos, cannonballHadd;
-    [SerializeField] GameObject endCam, gaint, tutorial;
+    [SerializeField] Transform shootingPos,cannonballHadd;
+    [SerializeField] GameObject endCam,gaint,tutorial;
     [SerializeField] RectTransform cross;
     [SerializeField] TextMeshProUGUI bulletText;
     [SerializeField] ParticleSystem ShootParticle;
     Color playerColor;
-    [SerializeField] float crossMoveSens, charactersMoveToCannonSpeed;
-    [SerializeField] float jumpTime, jumpPower, shootingTime, shootingSpeedTime;
-    List<GameObject> _CollectiableCharacters = new List<GameObject>();
-    List<ParticleSystem> Particles = new List<ParticleSystem>();
-    bool canShoot = false, timeUp, oneTime = false, oneTime2 = false;
+    [SerializeField] float crossMoveSens,charactersMoveToCannonSpeed;
+    [SerializeField] float jumpTime,jumpPower,shootingTime,shootingSpeedTime;
+    List<GameObject> _CollectiableCharacters=new List<GameObject>();
+    List<ParticleSystem> Particles=new List<ParticleSystem>();
+    bool canShoot=false,timeUp,oneTime=false,oneTime2=false;
 
 
 
@@ -28,7 +28,7 @@ public class CannonScript : MonoBehaviour
 
     private void Start()
     {
-        bulletText.text = "0";
+        bulletText.text="0";
     }
     void closeTutorial()
     {
@@ -36,57 +36,57 @@ public class CannonScript : MonoBehaviour
     }
     private void Update()
     {
-        if (GameManager.Instance.GameState == GameState.End && bulletText.transform.parent.gameObject.activeSelf)
+        if(GameManager.Instance.GameState==GameState.End && bulletText.transform.parent.gameObject.activeSelf)
         {
             bulletText.transform.parent.gameObject.SetActive(false);
         }
-        if (canShoot)
+        if(canShoot)
         {
             timer();
             Targetting();
-            if (timeUp)
+            if(timeUp)
             {
                 MMVibrationManager.Haptic(HapticTypes.MediumImpact);
                 Shoot();
             }
         }
 
-        if (oneTime && _CollectiableCharacters.Count <= 0)
+        if(oneTime && _CollectiableCharacters.Count<=0)
         {
-            oneTime = false;
-            Invoke("LoseTester", shootingSpeedTime + .5f);
+            oneTime=false;
+            Invoke("LoseTester",shootingSpeedTime+.5f);
         }
     }
     Vector3 playerPos;
     float movmentSpeed;
-    public IEnumerator MoveToCannon(List<GameObject> CollectiableCharacters, CharacterController characterController, GameObject player, float WaitTime)
+    public IEnumerator MoveToCannon(List<GameObject> CollectiableCharacters,CharacterController characterController,GameObject player,float WaitTime)
     {
         yield return new WaitForSeconds(WaitTime);
 
-        foreach (var item in characterController.CollectiableCharaters)
+        foreach(var item in characterController.CollectiableCharaters)
         {
             item.transform.GetChild(0).GetComponent<Animator>().SetTrigger("Idle");
         }
         characterController.animator.SetTrigger("Idle");
 
-        characterController.gameFinish = true;
+        characterController.gameFinish=true;
         _CollectiableCharacters.Add(player);
         Particles.Add(player.GetComponent<CharacterController>().trailParticle);
-        playerPos = player.transform.position;
-        playerColor = (LevelSettings.Instance.colors[(int)characterController.myColor]);
-        if (CollectiableCharacters.Count > 0)
-            movmentSpeed = CollectiableCharacters[0].GetComponent<CollectiableChar>().movmentSpeed;
-        foreach (var item in CollectiableCharacters)
+        playerPos=player.transform.position;
+        playerColor=(LevelSettings.Instance.colors[(int)characterController.myColor]);
+        if(CollectiableCharacters.Count>0)
+            movmentSpeed=CollectiableCharacters[0].GetComponent<CollectiableChar>().movmentSpeed;
+        foreach(var item in CollectiableCharacters)
         {
             _CollectiableCharacters.Add(item);
             item.transform.DOKill();
         }
         characterController.tac.SetActive(false);
-        characterController.enabled = false;
+        characterController.enabled=false;
 
-        foreach (var item in CollectiableCharacters)
+        foreach(var item in CollectiableCharacters)
         {
-            item.GetComponent<CollectiableChar>().enabled = false;
+            item.GetComponent<CollectiableChar>().enabled=false;
             Particles.Add(item.GetComponent<CollectiableChar>().trailParticle);
         }
 
@@ -95,98 +95,93 @@ public class CannonScript : MonoBehaviour
     IEnumerator MoveAndJump()
     {
         float WaitTime;
-        if (_CollectiableCharacters.Count > 1)
-            WaitTime = jumpTime + Vector3.Distance(_CollectiableCharacters[_CollectiableCharacters.Count - 1].transform.position, playerPos) / movmentSpeed;
+        if(_CollectiableCharacters.Count>1)
+            WaitTime=jumpTime+Vector3.Distance(_CollectiableCharacters[_CollectiableCharacters.Count-1].transform.position,playerPos)/movmentSpeed;
         else
-            WaitTime = jumpTime;
+            WaitTime=jumpTime;
 
-        for (int i = 0; i < _CollectiableCharacters.Count; i++)
+        for(int i=0;i<_CollectiableCharacters.Count;i++)
         {
             yield return new WaitForSeconds(.1f);
-            _CollectiableCharacters[i].GetComponent<MoveAndJump>().MoveAndJumpMeth(playerPos, movmentSpeed, transform, jumpPower, jumpTime);
+            _CollectiableCharacters[i].GetComponent<MoveAndJump>().MoveAndJumpMeth(playerPos,movmentSpeed,transform,jumpPower,jumpTime);
         }
         yield return new WaitForSeconds(WaitTime);
 
-        bulletText.text = (_CollectiableCharacters.Count).ToString();
-        Invoke("closeTutorial", 3.5f);
+        bulletText.text=(_CollectiableCharacters.Count).ToString();
+        Invoke("closeTutorial",3.5f);
         endCam.SetActive(true);
-        canShoot = true;
-        oneTime = true;
+        canShoot=true;
+        oneTime=true;
     }
 
-    float time = 0;
+    float time=0;
     void timer()
     {
 
-        if (Input.GetMouseButtonDown(0))
+        if(Input.GetMouseButtonDown(0))
         {
-            time = 0;
+            time=0;
         }
-        if (Input.GetMouseButton(0))
+        if(Input.GetMouseButton(0))
         {
-            time += Time.deltaTime;
+            time+=Time.deltaTime;
 
-            if (time >= shootingTime)
+            if(time>=shootingTime)
             {
-                timeUp = true;
-                time = 0;
+                timeUp=true;
+                time=0;
             }
             else
             {
-                timeUp = false;
+                timeUp=false;
             }
         }
     }
     public float posZ;
     void Targetting()
     {
-        if (Input.touchCount > 0)
+        if(Input.GetMouseButton(0))
         {
-            Touch touch = Input.GetTouch(0);
-            if (touch.phase == TouchPhase.Moved)
+
+            Vector2 _movePos=new Vector3(Input.mousePosition.x,Input.mousePosition.y,0)*crossMoveSens;
+            Vector2 limit=cross.anchoredPosition+_movePos;
+            if(limit.x>-500 && limit.x<500 && limit.y>0 && limit.y<1000)
             {
-                Vector2 _movePos = new Vector3(touch.deltaPosition.x, touch.deltaPosition.y, 0) * crossMoveSens;
-                Vector2 limit = cross.anchoredPosition + _movePos;
-                if (limit.x > -500 && limit.x < 500 && limit.y > 0 && limit.y < 1000)
-                {
-                    cross.anchoredPosition += _movePos;
+                cross.anchoredPosition+=_movePos;
 
-                    float xMultipler = 20;
-                    float zMultipler = 12.5f;
-                    cannonballHadd.transform.localRotation = Quaternion.Euler((limit.y / xMultipler), 0, -(limit.x / zMultipler));
-                    //cannonballHadd.LookAt(Camera.main.ScreenToWorldPoint(new Vector3(cross.position.x, cross.position.y, posZ)), Vector3.up);
-                }
-                targetForce = Camera.main.ScreenToWorldPoint(new Vector3(cross.position.x, cross.position.y, posZ));
-
+                float xMultipler=20;
+                float zMultipler=12.5f;
+                cannonballHadd.transform.localRotation=Quaternion.Euler((limit.y/xMultipler),0,-(limit.x/zMultipler));
+                //cannonballHadd.LookAt(Camera.main.ScreenToWorldPoint(new Vector3(cross.position.x, cross.position.y, posZ)), Vector3.up);
             }
-
+            targetForce=Camera.main.ScreenToWorldPoint(new Vector3(cross.position.x,cross.position.y,posZ));
         }
 
     }
     void Shoot()
     {
-        if (GameManager.Instance.GameState != GameState.End)
+        if(GameManager.Instance.GameState!=GameState.End)
         {
-            if (_CollectiableCharacters.Count > 0)
+            if(_CollectiableCharacters.Count>0)
             {
-                ShootParticle.startColor = playerColor;
+                ShootParticle.startColor=playerColor;
                 ShootParticle.Play();
-                _CollectiableCharacters[0].transform.position = shootingPos.position;
+                _CollectiableCharacters[0].transform.position=shootingPos.position;
                 _CollectiableCharacters[0].SetActive(true);
-                Rigidbody rb = _CollectiableCharacters[0].GetComponent<Rigidbody>();
-                rb.constraints = RigidbodyConstraints.None;
-                if (targetForce != null)
+                Rigidbody rb=_CollectiableCharacters[0].GetComponent<Rigidbody>();
+                rb.constraints=RigidbodyConstraints.None;
+                if(targetForce!=null)
                 {
                     cannonballHadd.GetComponent<Animator>().SetTrigger("Blend");
 
                     _CollectiableCharacters[0].transform.GetChild(0).GetComponent<Animator>().SetTrigger("Fly");
                     Particles[0].Play();
-                    _CollectiableCharacters[0].transform.DOJump(targetForce, jumpPower, 1, shootingSpeedTime).SetEase(Ease.Linear);
-                    _CollectiableCharacters[0].transform.DOScale(_CollectiableCharacters[0].transform.localScale * 2.8f, shootingSpeedTime).SetEase(Ease.Linear);
+                    _CollectiableCharacters[0].transform.DOJump(targetForce,jumpPower,1,shootingSpeedTime).SetEase(Ease.Linear);
+                    _CollectiableCharacters[0].transform.DOScale(_CollectiableCharacters[0].transform.localScale*2.8f,shootingSpeedTime).SetEase(Ease.Linear);
                 }
                 Particles.Remove(Particles[0]);
                 _CollectiableCharacters.Remove(_CollectiableCharacters[0]);
-                bulletText.text = (_CollectiableCharacters.Count).ToString();
+                bulletText.text=(_CollectiableCharacters.Count).ToString();
 
 
             }
@@ -194,7 +189,7 @@ public class CannonScript : MonoBehaviour
     }
     public void LoseTester()
     {
-        if (GameManager.Instance.GameState != GameState.End)
+        if(GameManager.Instance.GameState!=GameState.End)
         {
             GameManager.Instance.LoseLevel();
             MMVibrationManager.Haptic(HapticTypes.Success);
