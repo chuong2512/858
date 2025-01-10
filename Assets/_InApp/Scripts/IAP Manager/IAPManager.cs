@@ -6,11 +6,6 @@ using SingleApp;
 
 public class IAPKey
 {
-    public const string PACK1 = "add1";
-    public const string PACK2 = "add3";
-    public const string PACK3 = "add5";
-    public const string PACK4 = "add10";
-    
     public const string PACK1_RE = "9N7M08BMPR3N";
     public const string PACK2_RE = "9N5GZNR0494X";
     public const string PACK3_RE = "9NRB29RPDMDV";

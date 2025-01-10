@@ -73,16 +73,16 @@ public class BuyCoinButton : MonoBehaviour
         switch (_index)
         {
             case 0:
-                IAPManager.Instance.BuyProductID(IAPKey.PACK1);
+                IAPManager.Instance.BuyProductID(IAPKey.PACK1_RE);
                 break;
             case 1:
-                IAPManager.Instance.BuyProductID(IAPKey.PACK2);
+                IAPManager.Instance.BuyProductID(IAPKey.PACK2_RE);
                 break;
             case 2:
-                IAPManager.Instance.BuyProductID(IAPKey.PACK3);
+                IAPManager.Instance.BuyProductID(IAPKey.PACK3_RE);
                 break;
             case 3:
-                IAPManager.Instance.BuyProductID(IAPKey.PACK4);
+                IAPManager.Instance.BuyProductID(IAPKey.PACK4_RE);
                 break;
         }
     }
