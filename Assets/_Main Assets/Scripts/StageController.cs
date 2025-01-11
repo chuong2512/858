@@ -4,7 +4,6 @@ using UnityEngine;
 using NaughtyAttributes;
 using DG.Tweening;
 using GPHive.Core;
-using MoreMountains.NiceVibrations;
 
 public class StageController : Singleton<StageController>
 {
@@ -53,7 +52,6 @@ public class StageController : Singleton<StageController>
         if (GameManager.Instance.TutorialCanvas.activeSelf)
             GameManager.Instance.TutorialCanvas.SetActive(false);
 
-        MMVibrationManager.Haptic(HapticTypes.Success);
         StagesClass stage = Stages[myStage];
         bool returnBool = false;
         if (stage.collectiableCount <= collecktedCount)

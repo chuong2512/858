@@ -4,7 +4,6 @@ using UnityEngine;
 using GPHive.Core;
 using DG.Tweening;
 using UnityEngine.UI;
-using MoreMountains.NiceVibrations;
 public class Gaint : MonoBehaviour
 {
     [SerializeField] float maxHealt;
@@ -34,7 +33,6 @@ public class Gaint : MonoBehaviour
         if (healt <= 0)
         {
             animator.SetTrigger("Death");
-            MMVibrationManager.Haptic(HapticTypes.Success);
             winConitionScript.deathGaint++;
         }
         else

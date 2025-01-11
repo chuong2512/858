@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
 using GPHive.Core;
-using MoreMountains.NiceVibrations;
 public class TriengalParent : MonoBehaviour
 {
 
@@ -14,7 +13,6 @@ public class TriengalParent : MonoBehaviour
         {
             makeJustOne = false;
             transform.DOKill();
-            MMVibrationManager.Haptic(HapticTypes.Success);
             GameManager.Instance.WinLevel();
         }
 

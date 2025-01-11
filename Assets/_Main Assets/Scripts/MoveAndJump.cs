@@ -2,8 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
-using MoreMountains.NiceVibrations;
-using GPHive.Core;
 using GPHive.Game;
 
 public class MoveAndJump : MonoBehaviour

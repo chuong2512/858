@@ -5,7 +5,6 @@ using DG.Tweening;
 using GPHive.Core;
 using UnityEngine.UI;
 using TMPro;
-using MoreMountains.NiceVibrations;
 
 public class CannonScript : MonoBehaviour
 {
@@ -46,7 +45,6 @@ public class CannonScript : MonoBehaviour
             Targetting();
             if(timeUp)
             {
-                MMVibrationManager.Haptic(HapticTypes.MediumImpact);
                 Shoot();
             }
         }
@@ -192,7 +190,6 @@ public class CannonScript : MonoBehaviour
         if(GameManager.Instance.GameState!=GameState.End)
         {
             GameManager.Instance.LoseLevel();
-            MMVibrationManager.Haptic(HapticTypes.Success);
             gaint.GetComponent<Gaint>().animator.SetTrigger("Win");
         }
     }

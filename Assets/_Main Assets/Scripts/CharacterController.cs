@@ -5,7 +5,6 @@ using UnityEngine;
 using DG.Tweening;
 using NaughtyAttributes;
 using GPHive.Core;
-using MoreMountains.NiceVibrations;
 using TMPro;
 
 public class CharacterController : MonoBehaviour
@@ -88,7 +87,6 @@ public class CharacterController : MonoBehaviour
             if (hit2.transform.CompareTag("Door"))
             {
 
-                MMVibrationManager.Haptic(HapticTypes.MediumImpact);
                 Door door = hit2.transform.GetComponent<Door>();
                 myColor = door.myColor;
                 door.enterDoorParticle.Play();
@@ -128,7 +126,6 @@ public class CharacterController : MonoBehaviour
             CollectiableCounterTxtCount++;
             CollectiableCounterTxt.text = (CollectiableCounterTxtCount + 1).ToString();
 
-            MMVibrationManager.Haptic(HapticTypes.MediumImpact);
 
             if (!inCharacter)
             {
@@ -283,8 +280,6 @@ public class CharacterController : MonoBehaviour
 
         if (other.CompareTag("Door"))
         {
-
-            MMVibrationManager.Haptic(HapticTypes.MediumImpact);
             Door door = other.GetComponent<Door>();
             myColor = door.myColor;
             door.enterDoorParticle.Play();
@@ -308,7 +303,6 @@ public class CharacterController : MonoBehaviour
         }
         if (other.CompareTag("FinalWall"))
         {
-            MMVibrationManager.Haptic(HapticTypes.SoftImpact);
             transform.SetParent(LevelManager.Instance.ActiveLevel.transform);
             animator.ResetAll();
             animator.SetTrigger("Idle");
@@ -403,7 +397,6 @@ public class CharacterController : MonoBehaviour
     bool scale = false;
     void Movement(Direction direction)
     {
-        MMVibrationManager.Haptic(HapticTypes.MediumImpact);
         RaycastHit hitForPunch;
 
         Vector3 directionPos = Vector3.zero;
